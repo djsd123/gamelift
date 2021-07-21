@@ -82,7 +82,9 @@ class DataPolicyDocuments extends Resource {
                             type: 'Service',
                             identifiers: ['ec2.amazonaws.com']
                         }
-                    ]
+                    ],
+
+                    actions: [ 'sts:AssumeRole' ]
                 }
             ]
         })

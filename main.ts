@@ -19,6 +19,7 @@ const app = new App();
 const stack = new GameliftStack(app, 'gamelift')
 new S3Backend(stack, {
   bucket: 'gdsgrp-org-state',
-  key: 'gamelift/state.json'
+  key: 'gamelift/state.json',
+  region: 'eu-west-2'
 })
 app.synth()
