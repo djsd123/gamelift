@@ -1,7 +1,7 @@
 import { Construct } from 'constructs'
 import { Resource } from 'cdktf'
 import {
-    IamGroup,
+    IamGroup, IamInstanceProfile,
     IamPolicy,
     IamPolicyAttachment, IamRole,
 } from '@cdktf/provider-aws'
@@ -60,6 +60,11 @@ export class FleetIqIam extends Resource {
             name: FleetIqEC2Name,
             policyArn: fleetIqEc2Policy.arn,
             roles: [ fleetIqEc2Role.name ]
+        })
+
+        new IamInstanceProfile(this, 'fleetIqEc2InstanceProfile', {
+            name: FleetIqEC2Name,
+            role: fleetIqEc2Role.name
         })
     }
 }
